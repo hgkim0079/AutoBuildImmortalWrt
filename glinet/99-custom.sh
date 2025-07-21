@@ -14,7 +14,7 @@ if [ ! -f "$SETTINGS_FILE" ]; then
     echo "PPPoE settings file not found. Skipping." >> $LOGFILE
 else
    # 读取pppoe信息(由build.sh写入)
-   . "$SETTINGS_FILE"
+   。 "$SETTINGS_FILE"
 fi
 # 无需判断网卡数量 因为glinet是多网口
 uci set network.lan.ipaddr='192.168.8.1'
@@ -43,7 +43,7 @@ uci commit
 
 # 设置编译作者信息
 FILE_PATH="/etc/openwrt_release"
-NEW_DESCRIPTION="Compiled by wukongdaily"
+NEW_DESCRIPTION="Compiled by KHG"
 sed -i "s/DISTRIB_DESCRIPTION='[^']*'/DISTRIB_DESCRIPTION='$NEW_DESCRIPTION'/" "$FILE_PATH"
 
 exit 0

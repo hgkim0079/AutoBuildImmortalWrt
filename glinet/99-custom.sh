@@ -15,7 +15,7 @@ if [ ! -f "$SETTINGS_FILE" ]; then
     echo "PPPoE settings file not found. Skipping." >> $LOGFILE
 else
    # 读取pppoe信息(由build.sh写入)
-   . "$SETTINGS_FILE"
+   。 "$SETTINGS_FILE"
 fi
 # 设置子网掩码 
 uci set network.lan.netmask='255.255.255.0'
@@ -63,7 +63,7 @@ if command -v dockerd >/dev/null 2>&1; then
             echo "Deleting forwarding @forwarding[$idx]"
             uci delete firewall.@forwarding[$idx]
         fi
-    done
+    已完成
     # 提交删除
     uci commit firewall
     # 追加新的 zone + forwarding 配置
@@ -102,7 +102,7 @@ uci commit
 
 # 设置编译作者信息
 FILE_PATH="/etc/openwrt_release"
-NEW_DESCRIPTION="Packaged by wukongdaily"
+NEW_DESCRIPTION="Packaged by khg"
 sed -i "s/DISTRIB_DESCRIPTION='[^']*'/DISTRIB_DESCRIPTION='$NEW_DESCRIPTION'/" "$FILE_PATH"
 
 exit 0
